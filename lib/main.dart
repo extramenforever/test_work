@@ -6,7 +6,6 @@ import 'package:test_work/check_auth.dart';
 import 'package:test_work/firebase_options.dart';
 import 'package:test_work/home.dart';
 import 'package:test_work/login_page.dart';
-import 'package:test_work/register_name.dart';
 import 'package:test_work/register_page.dart';
 import 'package:test_work/start_screen.dart';
 
