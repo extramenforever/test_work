@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:test_work/auth.dart';
-import 'package:test_work/builders.dart';
+import 'package:test_work/custom_back_button.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key, required this.title});
@@ -33,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: getCustomBackIcon(),
+          icon: CustomBackButton.getCustomBackIcon(),
         ),
       ),
       body: Padding(

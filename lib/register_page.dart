@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_work/auth.dart';
-import 'package:test_work/builders.dart';
+import 'package:test_work/custom_back_button.dart';
 import 'package:test_work/register_name.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -26,7 +26,7 @@ class _RegisterPageState extends State<RegisterPage> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: getCustomBackIcon(),
+          icon: CustomBackButton.getCustomBackIcon(),
         ),
       ),
       body: Padding(
