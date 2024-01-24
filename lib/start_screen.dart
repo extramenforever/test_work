@@ -10,38 +10,70 @@ class StartScreen extends StatefulWidget {
 class _StartScreenState extends State<StartScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          Flexible(
-            flex: 9,
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                Image.asset('assets/images/Rectangle.png'),
-                Image.asset('assets/images/Group.png'),
-                Align(
-                  alignment: Alignment.bottomLeft,
-                  child: Image.asset('assets/images/Component.png'),
-                ),
-              ],
-            ),
-          ),
-          Row(
+    double widthScreen = MediaQuery.of(context).size.width;
+    return PopScope(
+      canPop: false,
+      child: SafeArea(
+        child: Scaffold(
+          body: Column(
             children: [
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/login');
-                  },
-                  child: const Text('LOG IN')),
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/register');
-                  },
-                  child: const Text('REGISTER'))
+              Flexible(
+                flex: 9,
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Image.asset(
+                      'assets/images/Rectangle.png',
+                      fit: BoxFit.contain,
+                      width: widthScreen,
+                    ),
+                    Image.asset(
+                      'assets/images/Group.png',
+                      fit: BoxFit.contain,
+                      width: widthScreen / 2,
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Expanded(
+                      child: OutlinedButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/login');
+                        },
+                        child: const Padding(
+                          padding: EdgeInsets.symmetric(vertical: 20),
+                          child: Text(
+                            'LOG IN',
+                            style: TextStyle(color: Colors.black),
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Expanded(
+                      child: FilledButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/register');
+                        },
+                        child: const Padding(
+                          padding: EdgeInsets.symmetric(vertical: 20),
+                          child: Text('REGISTER'),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              )
             ],
-          )
-        ],
+          ),
+        ),
       ),
     );
   }

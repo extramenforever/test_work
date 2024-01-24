@@ -3,19 +3,23 @@ import 'package:provider/provider.dart';
 import 'package:test_work/auth.dart';
 import 'package:test_work/builders.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key, required this.title});
+class RegisterName extends StatefulWidget {
+  const RegisterName(
+      {super.key,
+      required this.title,
+      required this.email,
+      required this.password});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterName> createState() => _RegisterNameState();
   final String title;
+  final String email;
+  final String password;
 }
 
-class _LoginPageState extends State<LoginPage> {
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
+class _RegisterNameState extends State<RegisterName> {
+  final TextEditingController _username = TextEditingController();
   late final Auth auth;
-  String? errorText;
 
   @override
   void initState() {
@@ -51,42 +55,30 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             const SizedBox(height: 30),
-            TextField(
-              controller: _emailController,
-              decoration: const InputDecoration(
-                hintText: 'jane@example.com',
-              ),
-            ),
-            const SizedBox(height: 15),
-            TextField(
-              controller: _passwordController,
-              obscureText: true,
-              obscuringCharacter: '*',
+            const TextField(
               decoration: InputDecoration(
-                errorText: errorText,
-                hintText: '**********',
+                hintText: 'the_jane',
               ),
             ),
             const SizedBox(height: 15),
             FilledButton(
               style: const ButtonStyle(),
               onPressed: () async {
-                if (await auth.signInWithEmailAndPassword(
-                    context, _emailController.text, _passwordController.text)) {
+                if (await auth.createWithEmailAndPassword(
+                    widget.email, widget.password, _username.text)) {
                   if (mounted) {
-                    Navigator.pushReplacementNamed(context, '/main-page');
+                    Navigator.pushNamed(context, '/main-page');
                   }
-                } else {
-                  setState(() {
-                    errorText = 'Invalid email or password';
-                  });
                 }
               },
               child: const Padding(
                 padding: EdgeInsets.symmetric(vertical: 20),
-                child: Text('LOG IN'),
+                child: Text('SIGN UP'),
               ),
-            )
+            ),
+            const SizedBox(height: 30),
+            const Text(
+                'By signing up, you agree to Photo\'s Terms of Service and Privacy Policy.'),
           ],
         ),
       ),

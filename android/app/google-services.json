@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "264147316738",
+    "project_id": "taxicab-1bf3d",
+    "storage_bucket": "taxicab-1bf3d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:264147316738:android:71da6bd1d0d04c5da9b71b",
+        "android_client_info": {
+          "package_name": "com.example.test_work"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcH7zjTQXs9_h7eq72OMjS7sKD3w16lXc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
