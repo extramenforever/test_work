@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_work/auth.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -22,7 +23,16 @@ class HomeScreen extends StatelessWidget {
                   fontFamily: 'Comfortaa',
                 ),
               ),
-              const SizedBox(height: 30),
+              Align(
+                alignment: Alignment.centerRight,
+                child: IconButton(
+                  onPressed: () {
+                    Auth().signOut();
+                    Navigator.pushNamed(context, '/start-screen');
+                  },
+                  icon: const Icon(Icons.logout_rounded),
+                ),
+              ),
               const Text(
                 'What\'s new today ',
                 style: TextStyle(

@@ -15,7 +15,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  late final Auth auth;
   int _selectedIndex = 0;
   late Widget _setScreen;
   late double widthScreen;
@@ -24,7 +23,6 @@ class _HomeState extends State<Home> {
   void initState() {
     super.initState();
     _setScreen = const HomeScreen();
-    auth = Provider.of<Auth>(context, listen: false);
   }
 
   changeScreen(index) {
